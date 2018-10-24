@@ -1,0 +1,17 @@
+<div class="card">
+  <div class="card-title"><h5>Tareas</h5></div>
+  <div class="card-content">
+    <form #taskForm="ngForm" (ngSubmit)="onSubmit(name)">
+      <input type="text" placeholder="Ingresa tus tareas" name="name" #name="ngModel" [(ngModel)]="todoService.selectedTask.name">
+      <div class="card-action">
+        <button type="submit" class="btn blue left" title="Agregar">
+          <i class="large material-icons">add</i>
+        </button>
+      
+        <button type="reset" class="btn blue right" title="Resetear" (click)="resetForm(taskForm)">
+          <i class="large material-icons">refresh</i>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
