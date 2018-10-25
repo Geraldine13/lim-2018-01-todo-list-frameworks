@@ -8,21 +8,10 @@
         <tr *ngFor="let todo of todoList">
           <td [class.is-done]="todo.isDone">
             {{todo.nameTask}}
-            <input type="text" class="hidden">
           </td>
           <td>
             <button class="green" (click)="onCheck(todo)">
               <i class="material-icons">check</i>
-            </button>
-          </td>
-          <td class="right">
-            <button class="orange" (click)="onEdit(todo)">
-              <i class="material-icons">edit</i>
-            </button>
-          </td>
-          <td class="right hidden">
-            <button class="blue" (click)="onSave(todo)">
-              <i class="material-icons">save</i>
             </button>
           </td>
           <td >

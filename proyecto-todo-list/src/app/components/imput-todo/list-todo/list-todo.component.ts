@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 
 // service
 import { TodoService } from '../../../services/todo.service';
 import { Todo  } from '../../../models/todo';
 import { ToastrService } from 'ngx-toastr';
+import { toDate } from '../../../../../node_modules/@angular/common/src/i18n/format_date';
+import { element } from '../../../../../node_modules/protractor';
 
 @Component({
   selector: 'app-list-todo',
@@ -17,7 +19,8 @@ export class ListTodoComponent implements OnInit {
 
   constructor(
     private todoService: TodoService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private renderer: Renderer2
   ) { }
 
   ngOnInit() {
@@ -35,10 +38,6 @@ export class ListTodoComponent implements OnInit {
 
   onCheck(todo: Todo) {
     this.todoService.updateState(todo)
-  }
-
-  onEdit(todo: Todo) {
-    
   }
 
   onDelete($key: string) {

@@ -1,5 +1,5 @@
 <div class="card">
-  <div class="card-title"><h5>Tareas</h5></div>
+  <div class="card-title"><h5>Agregar Tareas</h5></div>
   <div class="card-content">
     <form #taskForm="ngForm" (ngSubmit)="onSubmit(name)">
       <input type="text" placeholder="Ingresa tus tareas" name="name" #name="ngModel" [(ngModel)]="todoService.selectedTask.name">

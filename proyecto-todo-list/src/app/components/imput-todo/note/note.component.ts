@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TodoService } from '../../../services/todo.service';
 import { NgForm } from '../../../../../node_modules/@angular/forms';
 import { Todo } from '../../../models/todo';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-note',
@@ -10,7 +11,10 @@ import { Todo } from '../../../models/todo';
 })
 export class NoteComponent implements OnInit {
 
-  constructor(private todoService: TodoService) { }
+  constructor(
+    private todoService: TodoService,
+    private toastr: ToastrService
+  ) { }
 
   ngOnInit() { // Acá se carga las tareas ya ingresadas
     this.todoService.getTasks();
@@ -19,8 +23,16 @@ export class NoteComponent implements OnInit {
 
   // para enviar tarea
   onSubmit(taskForm: NgForm) {
-    this.todoService.insertTask(taskForm.value);
-    this.resetForm(taskForm);
+    if (taskForm.value) {
+      if (taskForm.value.trim()) {
+        this.todoService.insertTask(taskForm.value);
+        this.resetForm(taskForm);
+      } else {
+        this.toastr.info('Debe ingresar una tarea');
+      }
+    } else {
+      this.toastr.info('Debe ingresar una tarea');
+    }
   }
 
   // para resetear form

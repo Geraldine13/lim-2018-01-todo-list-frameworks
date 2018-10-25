@@ -6,6 +6,7 @@ import { Todo } from '../models/todo';
 @Injectable({
   providedIn: 'root'
 })
+
 export class TodoService {
 
   todoList: AngularFireList<any>;
@@ -23,14 +24,6 @@ export class TodoService {
     this.todoList.push({
       nameTask: task,
       isDone: false
-    })
-  }
-
-  // actualizar tarea
-  updateTask(task: Todo){
-    this.todoList.update(task.$key, {
-      nameTask: task.task,
-      isDone: task.isDone
     })
   }
 
