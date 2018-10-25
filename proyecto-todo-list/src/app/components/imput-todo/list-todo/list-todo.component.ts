@@ -1,4 +1,4 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 // service
 import { TodoService } from '../../../services/todo.service';
@@ -18,9 +18,8 @@ export class ListTodoComponent implements OnInit {
   todoList: Todo[];
 
   constructor(
-    private todoService: TodoService,
-    private toastr: ToastrService,
-    private renderer: Renderer2
+    public todoService: TodoService,
+    public toastr: ToastrService,
   ) { }
 
   ngOnInit() {

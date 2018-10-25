@@ -12,8 +12,8 @@ import { ToastrService } from 'ngx-toastr';
 export class NoteComponent implements OnInit {
 
   constructor(
-    private todoService: TodoService,
-    private toastr: ToastrService
+    public todoService: TodoService,
+    public toastr: ToastrService
   ) { }
 
   ngOnInit() { // Acá se carga las tareas ya ingresadas
